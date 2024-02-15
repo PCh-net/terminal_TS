@@ -56,7 +56,7 @@ class UsersData {
   }
 
   public editUser(oldName: string, newName: string, newAge: number): void {
-    const userIndex = this.data.findIndex(user => user.name === oldName);
+    const userIndex = this.data.findIndex(user => user.name.toLowerCase() === oldName.toLowerCase());
     if (userIndex !== -1) {
       this.data[userIndex] = { name: newName, age: newAge };
       Message.showColorized(Variant.success, 'User has been successfully edited!');
@@ -64,6 +64,7 @@ class UsersData {
       Message.showColorized(Variant.error, 'User not found...');
     }
   }
+  
 
 }
 
